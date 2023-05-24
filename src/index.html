@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>web-plus!</title>
+  <script>
+    window.onload = function () {
+      const webviewEl = document.getElementById('webview-tag');
+      webviewEl.addEventListener('dom-ready', () => {
+        webviewEl.openDevTools({ mode: 'detach' });
+      });
+    }
+  </script>
+</head>
+<body>
+  <!-- 添加 app 共享组件 -->
+    <webview id="webview-tag" partition="www.baidu.com" src="https://www.baidu.com/" style="width: 100%; height: 100%;">
+    </webview>
+</body>
+</html>
