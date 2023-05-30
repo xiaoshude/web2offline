@@ -195,7 +195,13 @@ export function createCacheServer() {
     }
 
   });
-  server.listen(8989);
+
+  try {
+    server.listen(8989);
+  } catch (e) {
+    // 按已启动处理，不抛出异常
+    console.error('cache server 启动失败', e);
+  }
 }
 /**
  * check url is include host

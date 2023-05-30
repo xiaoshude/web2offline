@@ -14,6 +14,8 @@ import { useSessionForHost } from './main/session';
 import { initializeDatabase } from './main/db/dbUseJson';
 import { createCacheServer } from './main/utils/cacheServer';
 
+const isDev = process.env.NODE_ENV === 'development';
+
 const createWindow = (): void => {
   createCacheServer()
   const host = new URL(configJson.url || MAIN_WINDOW_WEBPACK_ENTRY).hostname;
@@ -35,7 +37,9 @@ const createWindow = (): void => {
   mainWindow.loadURL(configJson.url || MAIN_WINDOW_WEBPACK_ENTRY);
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  if (isDev) {
+    mainWindow.webContents.openDevTools();
+  }
 };
 
 // This method will be called when Electron has finished
