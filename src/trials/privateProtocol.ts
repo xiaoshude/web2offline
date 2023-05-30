@@ -1,3 +1,4 @@
+// @ts-nocheck 
 import fs from 'fs';
 import { getCacheDataFromDatabase } from '../main/db/dbUseJson';
 import { getLocalFilePath } from '../main/utils/fs';

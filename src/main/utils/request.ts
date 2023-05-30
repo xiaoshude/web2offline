@@ -1,4 +1,5 @@
 import { app, session, BrowserWindow, net, ipcMain, Session, webFrameMain, WebFrameMain } from 'electron';
+const port = 9898;
 function request() {
   return new Promise((resolve, reject) => {
     const r = net.request({

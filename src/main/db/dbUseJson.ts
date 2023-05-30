@@ -40,7 +40,7 @@ export function saveCacheDataToDatabase(cacheData: CacheData) {
  * @param localFilePath 
  * @returns 
  */
-export function getCacheDataFromDatabase(localFilePath: string): Promise<Record<string, CacheData> | null> {
+export function getCacheDataFromDatabase(localFilePath: string): Promise<CacheData | null> {
   return new Promise((resolve, reject) => {
     try {
     const data = JSON.parse(fs.readFileSync(dbPath, 'utf-8'));

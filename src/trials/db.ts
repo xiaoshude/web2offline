@@ -1,3 +1,4 @@
+// @ts-nocheck
 import sqlite3 from 'sqlite3';
 import { CacheData } from '../main/interface';
 

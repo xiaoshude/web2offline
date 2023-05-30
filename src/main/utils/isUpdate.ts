@@ -1,5 +1,4 @@
 import fs from 'fs';
-import { defaultDbPath } from '../const';
 import { getCacheDataFromDatabase } from '../db/dbUseJson';
 import { fetchRemoteContent } from './cache';
 import { getCookieStringFromCacheByUrl, onlineUrl2localFilePath } from './cacheServer';
@@ -13,14 +12,14 @@ export async function isUpdate(url: string): Promise<boolean> {
   if (!newResult.contentType.includes('text/html')) return false;
 
   // fs read cache.json
-  const cacheJson = await getCacheDataFromDatabase(defaultDbPath);
-  if (!cacheJson) return true;
-
   // 计算 localFilePath
   const localFilePath = onlineUrl2localFilePath(url);
 
-  const oldCacheData = cacheJson[localFilePath];
 
+  const cacheJson = await getCacheDataFromDatabase(localFilePath);
+  if (!cacheJson) return true;
+
+  const oldCacheData = cacheJson;
   // 比较 lastModified
   const { lastModified, etag, contentLength } = newResult;
   if (lastModified !== oldCacheData.lastModified) return true;

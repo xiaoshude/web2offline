@@ -1,8 +1,4 @@
 import { session, net } from "electron";
-import { parseCookie } from '../utils/cookie';
-import { localServerUrl } from '../const';
-import { cookieCacheDb } from '../db/cookieDb';
-import { extendResponseHeader } from '../utils/header';
 import { startProxyServer } from "./proxyServer";
 // import { usePrivateAppProtocol } from './privateProtocol';
 
